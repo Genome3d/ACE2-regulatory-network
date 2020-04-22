@@ -12,13 +12,19 @@ output:
 date: April, 2020
 ---
 
+
+```{r options, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+
+```
+
 ```{r Setup}
-#setwd('/Volumes/GoogleDrive/My\ Drive/covid19/github/scripts')
+#setwd('')
 library(tidyverse)
 ```
 
 
-
+Identification of spatial eQTLs among SNPs with ACE2 (../data/ace2_snps.txt) was done using CoDeS3D (https://github.com/Genome3d/codes3d-v2). For more information on the cell lines and tissues used, see study methods at https://doi.org/10.1101/2020.04.14.042002
 ```{r Read lung eQTL data}
 lung <- read.csv('../data/significant_eqtls.txt', sep='\t', stringsAsFactors =F)
 
@@ -30,6 +36,7 @@ ggplot(lung,
 
 
 
+The 3D Genome Browser (http://promoter.bx.psu.edu/hi-c/) was used to visualise TADs within the ACE2 region. Interactions between eQTLs and their gene targets were visualised using UCSC browser's Interact tracks (https://genome.ucsc.edu/goldenPath/help/interact.html)
 
 ```{r UCSC interact file}
 ### Add the following lines at the beginning of the file produced by this chunk
